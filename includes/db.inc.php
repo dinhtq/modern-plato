@@ -1,6 +1,6 @@
 <?php
 
-$link = mysqli_connect('localhost','root','root');
+$link = mysqli_connect('localhost','root','');
 
 //connect to the db
 
@@ -21,7 +21,7 @@ if (!mysqli_set_charset($link, 'utf8')) {
 
 //selecting the db
 
-if (!mysqli_select_db($link, 'modernPlato')) {
+if (!mysqli_select_db($link, 'modernplato')) {
 	$error = 'Unable to locate modernPlato database.';
 	include 'error.html.php';
 	exit();

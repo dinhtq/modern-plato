@@ -1,18 +1,18 @@
 <?php
   include_once 'includes/db.inc.php';
-  include_once 'magicquotes.inc.php';
+  include_once 'includes/magicquotes.inc.php';
 
   $result = mysqli_query($link,
-            "SELECT * FROM zips WHERE zip = '45011' ");
+            "SELECT DISTINCT state FROM zips ");
+
   if (!$result) {
     $error = "unable to query";
-    include 'error.html.php';
+    include 'includes/error.html.php';
     exit();
   }
 
   while($row = mysqli_fetch_array($result)) {
-    $cases[] = array('zip' => $row['zip'], 'state' => $row['state'], 'city' => $row['city'], 
-                        'lat' => $row['lat'], 'lng' => $row['lng']);
+    $cases[] = array('state' => $row['state']);
   }
 
 
@@ -112,7 +112,7 @@
             <form method="post" action="#">
 
                <blockquote> 
-                <p>Zip Code : <?php echo $case['zip'] ?></p>
+                
                 <p>State: <?php echo $case['state'] ?></p>
 
                </blockquote> 

@@ -2,7 +2,7 @@
 
 <?php
   include_once 'includes/db.inc.php';
-  include_once 'magicquotes.inc.php';
+  include_once 'includes/magicquotes.inc.php';
 
 
 
@@ -84,7 +84,7 @@
                   
                   <tr>
                     <td id="value" colspan="4" style="vertical-align:bottom" >
-                      <img src="img/mp-logo.png" width="450" height="209" ></td>
+                      <a href="index.php"><img src="img/mp-logo.png" width="450" height="209" ></a></td>
                   </tr>
 
                 </tbody>

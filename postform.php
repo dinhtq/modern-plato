@@ -1,6 +1,39 @@
 <?php
   include 'includes/db.inc.php';
-  include 'magicquotes.inc.php';
+  include 'includes/magicquotes.inc.php';
+
+
+
+ 
+
+  $result_states = mysqli_query($link,
+              'SELECT DISTINCT state FROM zips');
+
+  if(!$result_states) {
+    $error = "Unable to query";
+    include "includes/error.html.php";
+    exit();
+  }
+
+  while ($row = mysqli_fetch_array($result_states)) {
+    $states[] = array('state' => $row['state']);
+  }
+
+
+
+  $result_cities = mysqli_query($link,
+                'SELECT DISTINCT city FROM zips');
+  if (!$result_cities) {
+    $error = "Unable to query cities";
+    include 'includes/error.html.php';
+    exit();
+  }
+
+  while ($row2 = mysqli_fetch_array($result_cities)) {
+    $cities[] = array('city' => $row2['city']);
+  }
+
+
 
 
 
@@ -79,7 +112,7 @@
                   
                   <tr>
                     <td id="value" colspan="4" style="vertical-align:bottom" >
-                      <img src="img/mp-logo.png" width="450" height="209" ></td>
+                      <a href="index.php"><img src="img/mp-logo.png" width="450" height="209" ></a></td>
                   </tr>
 
                 </tbody>
@@ -114,21 +147,48 @@
 
                 </div>
 
-                 <div class="form-group form-group-sm">
-                  <label class="col-sm-2 control-label" for="city">city:</label>
+                <div class="form-group form-group-sm">
+                  <label class="col-sm-2 control-label" for="state">state:</label>
                   <div class="col-sm-6">
-                    <input class="form-control " type="text" name="city" required>
+
+                
+                    <select id="state" name="state" class="form-control"  required>
+                       <option value="" disabled selected>Select the state</option>
+                      <?php foreach ($states as $state) : ?>
+
+                          <option value=<?php echo $state['state']  ?>> <?php echo $state['state']  ?></option>
+
+
+                    <?php endforeach; ?>  
+                    </select>
                     
                   </div>
                 </div>
 
-                <div class="form-group form-group-sm">
-                  <label class="col-sm-2 control-label" for="state">state:</label>
+                 <div class="form-group form-group-sm">
+                  <label class="col-sm-2 control-label" for="city">city:</label>
                   <div class="col-sm-6">
-                    <input class="form-control " type="text" id="state" name="state" required>
+
+
+
+                     <select id="city" name="city" class="form-control"  required>
+                       <option value="" disabled selected>Select the city</option>
+                      <?php foreach ($cities as $city) : ?>
+
+                          <option value=<?php echo $city['city']  ?>> <?php echo $city['city']  ?></option>
+
+
+                    <?php endforeach; ?>  
+                    </select>
+
+
+
+                
                     
                   </div>
                 </div>
+
+                
 
                  <div class="form-group form-group-sm">
                   <label class="col-sm-2 control-label" for="description">description</label>
