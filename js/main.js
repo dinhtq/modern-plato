@@ -4,7 +4,22 @@ $(document).ready(function() {
 
 //focuses the first text field in a page
 	$(':text:first').focus();
+
 	
+	$('#state').change(function(){
+		$(this).after('<div id="loader"><img src="img/loading.gif" alt="loading cities" /></div> ');
+		$.get('includes/loadcities.php?state=' + $(this).val(),
+			function(data){
+				$('#city').html(data);
+				$('#loader').slideUp(100, function() {
+					$(this).remove();
+				});
+			} );
+
+
+	});//end change listener
+	
+		
 
 	$('#signUp').validate({
 
@@ -45,7 +60,7 @@ $(document).ready(function() {
 	}); //end validate fxn 
 
 
-	$('#postCase').validate(); /*{
+	$('#postCase').validate() /*{
 
 		rules : {
 			city : 'required',
@@ -60,10 +75,6 @@ $(document).ready(function() {
 		}, //end rules
 
 		messages: {
-			email : {
-				required : "Please enter an email address",
-				email : "This is not a valid email address"
-			},
 			city : {
 				required : "Please enter the city location"
 				
@@ -74,11 +85,20 @@ $(document).ready(function() {
 			},
 			description : {
 				required : "Please enter the description of the case"
+			},
+			email : {
+				required : "Please enter an email address",
+				email : "This is not a valid email address"
 			}
-				
+			
+					
 		}
 
-	}); //end validate fxn */
+	});  */
+
+
+
+
 
 
 }); //end ready

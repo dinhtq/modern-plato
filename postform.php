@@ -21,18 +21,6 @@
 
 
 
-  $result_cities = mysqli_query($link,
-                'SELECT DISTINCT city FROM zips');
-  if (!$result_cities) {
-    $error = "Unable to query cities";
-    include 'includes/error.html.php';
-    exit();
-  }
-
-  while ($row2 = mysqli_fetch_array($result_cities)) {
-    $cities[] = array('city' => $row2['city']);
-  }
-
 
 
 
@@ -136,7 +124,7 @@
 
             <h1 class="custom-header">Post a Case</h1>
 
-             <form class="form-horizontal" role="form" id="postCase">
+             <form class="form-horizontal" role="form" id="postCase" method="get">
 
                 <div class="form-group form-group-sm">
                   <label class="col-sm-2 control-label" for="email">email:</label>
@@ -173,12 +161,7 @@
 
                      <select id="city" name="city" class="form-control"  required>
                        <option value="" disabled selected>Select the city</option>
-                      <?php foreach ($cities as $city) : ?>
-
-                          <option value=<?php echo $city['city']  ?>> <?php echo $city['city']  ?></option>
-
-
-                    <?php endforeach; ?>  
+                     
                     </select>
 
 
@@ -193,7 +176,10 @@
                  <div class="form-group form-group-sm">
                   <label class="col-sm-2 control-label" for="description">description</label>
                   <div class="col-sm-6">
-                    <input class="form-control " type="text" id="description" name="description" required> 
+                  
+                    <textarea class="description"  name="description" required>
+                    </textarea> 
+
                   </div>
                 </div>
                 <div class="form-group">
@@ -203,6 +189,7 @@
                 </div>
              </form>
 
+            
 
            
 
