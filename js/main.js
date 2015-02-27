@@ -5,6 +5,7 @@ $(document).ready(function() {
 //focuses the first text field in a page
 	$(':text:first').focus();
 
+
 	
 	$('#state').change(function(){
 		$(this).after('<div id="loader"><img src="img/loading.gif" alt="loading cities" /></div> ');
@@ -17,8 +18,9 @@ $(document).ready(function() {
 			} );
 
 
-	});//end change listener
+	});//end state change listener
 	
+
 		
 
 	$('#signUp').validate({
@@ -60,7 +62,7 @@ $(document).ready(function() {
 	}); //end validate fxn 
 
 
-	$('#postCase').validate() /*{
+	$('#postCase').validate(); /*{
 
 		rules : {
 			city : 'required',
@@ -95,6 +97,26 @@ $(document).ready(function() {
 		}
 
 	});  */
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

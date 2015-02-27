@@ -1,23 +1,11 @@
 <?php
   include 'includes/db.inc.php';
   include 'includes/magicquotes.inc.php';
-
+  include 'includes/pullstates.php';
 
 
  
 
-  $result_states = mysqli_query($link,
-              'SELECT DISTINCT state FROM zips');
-
-  if(!$result_states) {
-    $error = "Unable to query";
-    include "includes/error.html.php";
-    exit();
-  }
-
-  while ($row = mysqli_fetch_array($result_states)) {
-    $states[] = array('state' => $row['state']);
-  }
 
 
 
@@ -26,6 +14,7 @@
 
 
 ?>
+
 
 
 
@@ -124,7 +113,7 @@
 
             <h1 class="custom-header">Post a Case</h1>
 
-             <form class="form-horizontal" role="form" id="postCase" method="get">
+             <form class="form-horizontal" role="form" id="postCase" method="get" action="feed.php">
 
                 <div class="form-group form-group-sm">
                   <label class="col-sm-2 control-label" for="email">email:</label>
@@ -173,18 +162,18 @@
 
                 
 
-                 <div class="form-group form-group-sm">
+                 <div class="form-group form-group-sm desc">
                   <label class="col-sm-2 control-label" for="description">description</label>
                   <div class="col-sm-6">
                   
-                    <textarea class="description"  name="description" required>
+                    <textarea id="description-text"  name="description" required>
                     </textarea> 
 
                   </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-6">
-                        <button type="submit" class="btn btn-info btn-block">Post</button>
+                        <input type="submit" href="feed.php"  id="postbtn" class="btn btn-info btn-block" value="POST">
                     </div>
                 </div>
              </form>
@@ -224,7 +213,7 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-
+    <script src="js/vendor/jquery.textfill.min"></script>
     <script src="js/vendor/bootstrap.min.js"></script>
 
     <script src="js/main.js"></script>

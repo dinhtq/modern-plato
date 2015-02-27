@@ -2,19 +2,9 @@
   include_once 'includes/db.inc.php';
   include_once 'includes/magicquotes.inc.php';
 
-  $result = mysqli_query($link,
-            "SELECT DISTINCT state FROM zips ");
+  include 'includes/insertCase.php';
 
-  if (!$result) {
-    $error = "unable to query";
-    include 'includes/error.html.php';
-    exit();
-  }
-
-  while($row = mysqli_fetch_array($result)) {
-    $cases[] = array('state' => $row['state']);
-  }
-
+  include 'includes/pullCases.php';
 
 
 ?>
@@ -107,13 +97,15 @@
       </div> <!-- end row 1-->
 
 
-      <?php foreach ($cases as $case) : ?>
+      <?php while ($row_cases = mysqli_fetch_array($query_pullAll)) : ?>
 
             <form method="post" action="#">
 
                <blockquote> 
                 
-                <p>State: <?php echo $case['state'] ?></p>
+                <p>UserID: <?php echo $row_cases['userid'] ?></p>
+                <p>ZipCode: <?php echo $row_cases['zipid'] ?></p>
+                 <p>Description: <?php echo $row_cases['strComments'] ?></p>
 
                </blockquote> 
 
@@ -122,7 +114,7 @@
 
             </form>
 
-      <?php endforeach; ?>
+      <?php endwhile; ?>
          
 
 
