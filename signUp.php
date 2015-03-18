@@ -1,3 +1,14 @@
+<?php
+
+  include 'includes/db.inc.php';
+  include 'includes/magicquotes.inc.php';
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -74,7 +85,7 @@
                   
                   <tr>
                     <td id="value" colspan="4" style="vertical-align:bottom" >
-                      <img src="img/mp-logo.png" width="450" height="209" ></td>
+                      <a href="index.php"><img src="img/mp-logo.png" width="450" height="209" ></a></td>
                   </tr>
 
                 </tbody>
@@ -98,13 +109,19 @@
 
             <h1 class="custom-header">Sign Up</h1>
 
-             <form class="form-horizontal" role="form" id="signUp">
+             <form class="form-horizontal" role="form" id="signUp" action="feed.php" method="get">
                 <div class="form-group form-group-sm">
+
+
+
+
                   <label class="col-sm-2 control-label" for="username">username:</label>
                   <div class="col-sm-6">
                     <input class="form-control" type="text" name="username" >
 
                   </div>
+
+
 
                 </div>
 
@@ -131,7 +148,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-6">
-                        <button type="submit" class="btn btn-info btn-block">Sign Up</button>
+                        <input type="submit" id="signUpBtn" href="#" class="btn btn-info btn-block" value="Sign Up" >
                     </div>
                 </div>
              </form>
@@ -151,6 +168,8 @@
 
       <br>
       <br><br>
+
+      
 
 
  
@@ -174,6 +193,8 @@
         <script src="js/vendor/bootstrap.min.js"></script>
 
         <script src="js/main.js"></script>
+        <script src="signUpValidation.js"></script>
+
 
 
 

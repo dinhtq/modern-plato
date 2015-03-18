@@ -3,14 +3,10 @@
   include_once 'includes/magicquotes.inc.php';
 
   include 'includes/insertCase.php';
-
-  include 'includes/pullCases.php';
-
-
+   include 'includes/pullCases.php';
+   include 'includes/insertNewUser.php';
+   
 ?>
-
-
-
 
 
 
@@ -44,90 +40,97 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-   <nav class="navbar nav-custom navbar-inverse navbar-fixed-top" role="navigation">
+   <nav class="navbar  navbar-inverse nav-feed navbar-fixed-top " role="navigation">
       <div class="container">
-        
-        <div class="col-sm-8 col-md-8 col-lg-8">          
-        </div>
-         <div class="col-sm-1 col-md-1 col-lg-1">
-         </div> 
-          <div class="col-sm-2 col-md-2 col-lg-2">
+          
+          <div class="col-sm-5 col-md-5 col-lg-5">  
 
-            <a class ="btn btn-info btn-sm headerbtn" href="signUp.php"><span class="glyphicon glyphicon-plus"></span>Sign Up</a>
-            <a class="btn btn-info btn-sm headerbtn"><span class="glyphicon glyphicon-user"></span>Log In</a>
+             <div class="logo-container">
+                                <a href="feed.php"><div id="logo-feed">Modern Plato</div></a>
+              </div>
+
+          </div>
+           <div class="col-sm-1 col-md-1 col-lg-1">
+
+           </div> 
+
+            <div class="col-sm-3 col-md-3 col-lg-3">
+           </div> 
+
+
+            <div class="col-sm-2 col-md-2 col-lg-2">
+
+              <a class ="btn btn-info btn-sm headerbtn" href="signUp.php"><span class="glyphicon glyphicon-plus"></span>Sign Up</a>
+              <a class="btn btn-info btn-sm headerbtn"><span class="glyphicon glyphicon-user"></span>Log In</a>
+             
+
+            </div> 
+
+           <div class="col-sm-1 col-md-1 col-lg-1">
+           </div>
            
-
-         </div> 
-
-         <div class="col-sm-1 col-md-1 col-lg-1"></div>
-         
       </div>
     </nav>
+
+
 
   
 
 
 
-  <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-sm-2 col-md-2 col-lg-2">
-          
-        </div>
+  <div class="container feed-wrapper">
+
+     <div class="row">
+                  <div class="col-sm-1 col-md-1  col-lg-1">
+                    
+                  </div>
+
+                  <div class="col-sm-10 col-md-10  col-lg-10">
+
+                     <?php while ($row_cases = mysqli_fetch_array($query_pullAll)) : ?>
+                       <div id="content-wrapper">
+
+                          <div class="content-header">
+
+                            <div class="content-date">
+                                <?php echo $row_cases['Date'] ?>
+
+                                <span class="content-title"><?php echo $row_cases['title'];  ?></span>
+                            </div> 
+                           
+
+                          </div>
+
+                              <div class="content">
+
+                                     <p><?php echo $row_cases['strComments'] ?></p> 
+                              
+
+                              </div>
+
+                              <div class="content-footer">
+
+                                  <div>
+                                    <span class="glyphicon glyphicon-map-marker"></span>
+
+                                    <?php echo $row_cases['zipid'] ?>
+
+                                  </div>
+
+                              </div>    
 
 
+                        </div> 
+                      <?php endwhile; ?>
 
-        <div class="col-sm-5 col-md-5 col-lg-5">
+                  </div>
 
-              <table class="table " style="margin-top:-25px;">
-                <tbody>
-                  
-                  <tr>
-                    <td id="value" colspan="4" style="vertical-align:bottom" >
-                      <a href="index.php"><img src="img/mp-logo.png" width="450" height="209" ></a></td>
-                  </tr>
-
-                </tbody>
-              </table>
-        </div>
-
-        <div class="col-sm-5 col-md-5 col-lg-5">
-          
-        </div>
+                  <div class="col-sm-1 col-md-1  col-lg-1">
+                    
+                  </div>
       </div> <!-- end row 1-->
 
-
-      <?php while ($row_cases = mysqli_fetch_array($query_pullAll)) : ?>
-
-            <form method="post" action="#">
-
-               <blockquote> 
-                
-                <p>UserID: <?php echo $row_cases['userid'] ?></p>
-                <p>ZipCode: <?php echo $row_cases['zipid'] ?></p>
-                 <p>Description: <?php echo $row_cases['strComments'] ?></p>
-
-               </blockquote> 
-
-             
-
-
-            </form>
-
-      <?php endwhile; ?>
-         
-
-
-
-      <br>
-      <br><br>
-
-
- 
-
-      <footer>
-       
-      </footer>
+    
     </div> <!-- /container -->   
 
 

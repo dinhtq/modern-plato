@@ -5,7 +5,7 @@ $(document).ready(function() {
 //focuses the first text field in a page
 	$(':text:first').focus();
 
-
+	
 	
 	$('#state').change(function(){
 		$(this).after('<div id="loader"><img src="img/loading.gif" alt="loading cities" /></div> ');
@@ -21,12 +21,15 @@ $(document).ready(function() {
 	});//end state change listener
 	
 
-		
+	/*	
 
 	$('#signUp').validate({
 
 		rules : {
-			username : 'required',
+			username : {
+				required : true,
+				remote : 'checkUsername.php'
+			},
 			email : {
 				required : true,
 				email: true
@@ -43,7 +46,8 @@ $(document).ready(function() {
 
 		messages: {
 			username : {
-				required : "Please enter a username"
+				required : "Please enter a username mother fucker",
+				remote : "Username taken"
 			},
 			email : {
 				required : "Please enter an email address",
@@ -60,7 +64,9 @@ $(document).ready(function() {
 		}
 
 	}); //end validate fxn 
-
+	
+	*/
+	
 
 	$('#postCase').validate(); /*{
 

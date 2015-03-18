@@ -1,26 +1,11 @@
  
-<!--from dependent_list example
- <?php
 
-include 'db.inc.php';
-
-$parent_cat = $_GET['parent_cat'];
-
-$query = mysqli_query($link,
-      "SELECT * FROM subcategories WHERE categoryID = '$parent_cat' ");
-
-while($row = mysqli_fetch_array($query)) {
-  echo "<option>" . $row['subcategory_name'] . "</option>";
-}
-
-?>
---> 
 
 
 
  <?php
 
- include 'includes/db.inc.php';
+ include 'db.inc.php';
 
  $state = $_GET['state'];
 

@@ -5,6 +5,8 @@
   include_once 'includes/magicquotes.inc.php';
 
 
+
+
 ?>
 
 
@@ -28,7 +30,10 @@
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <style>
-           
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
         </style>
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
@@ -39,7 +44,7 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-   <nav class="nav-custom " role="navigation">
+   <nav class="navbar nav-custom navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         
         <div class="col-sm-8 col-md-8 col-lg-8">          
@@ -65,95 +70,74 @@
 
         <div  class="container-fluid " >
             <!-- Example row of columns -->
-          
+            <div class="row">
+              <div class="col-sm-2 col-md-2 col-lg-2">
+                
+              </div>
+
+
+
+              <div class="col-sm-5 col-md-5 col-lg-5">
+                <h1 id="logo">Modern Plato</h1>
+                    
+              </div>
+
+              <div class="col-sm-5 col-md-5 col-lg-5">
+                
+              </div>
+            </div> <!-- end row 1-->
+
+
 
           </div> <!-- /container -->   
 
 
-        <div class="container-fluid logo-wrapper">
-
-              <div class="row">
-                  <div class="col-sm-3  col-lg-3">
-                    
-                  </div>
-
-
-
-                  <div class="col-sm-6  col-lg-6">
-
-                    <div class="logo-container">
-                                <div id="logo">Modern Plato</div>
-                    </div>
-                    
-                        
-                  </div>
-
-                  <div class="col-sm-3  col-lg-3">
-                    
-                  </div>
-            </div> <!-- end row 1-->
-        </div>
-
-     <div class="container-fluid content-container">
+        <div class="container-fluid ">
         
               <div class="row" >
 
-                  <div class="col-sm-2  col-lg-2">
+                  <div class="col-sm-4 col-md-4 col-lg-4">
                   </div>  
 
-                  <div class="col-sm-4  col-lg-4">
+                  <div class="col-sm-4 col-md-4 col-lg-4">
 
-                        <div class="container-fluid post-btn-container">
-                            
-       
-                          
-                              <a type="button" href="postform.php" name="post_case"> <button class="post-btn" onclick="highlight_text()"><big>Post Your Legal</big></button></a>
-                     
+                        <div class="container-fluid row-2-custom">
 
-                         
+                          <form role="form">
+
+                            <div class="form-group">
+                              <label for="city_state" class="label-custom">where</label>
+                              <input type="text" id="where_text" name="where_this" class="form-control input-lg text-right"  placeholder="city, state or zip code">
+                            </div>  
+
+                             <div class="form-group">
+                              <a type="submit" href="feed.php"  name="find_case" class="btn btn-info btn-block"><big>Find a case</big></a>
+                            </div>  
+
+                            <div class="form-group">
+                              <p align="center"><strong>-OR-</strong></p>
+                            </div>  
+
+                            <div class="form-group">
+                              <a type="submit" href="postform.php" name="post_case" class="btn btn-success btn-block" onclick="highlight_text()"><big>Post a case</big></a>
+                            </div>  
+
+                           
+
+
+                          </form>
 
 
                         </div><!--end container fluid for forms -->
 
                   </div>
 
-                  
-
-                  <div class="col-sm-4  col-lg-4">
-
-                          <div class="container-fluid find-side-wrapper">
-                              <div class="find-side-container">
-                                  <form role="form">
-
-                                    <div class="form-group">
-                                      <label for="city_state" class="label-custom ">where</label>
-                                      <input type="text" id="where_text" name="where_this" class="form-control input-lg text-right"  placeholder="city, state or zip code">
-                                    </div>  
-
-                                     <div class="form-group">
-                                      <a type="submit" href="feed.php"  name="find_case"><button class="btn-find"><big>Find a case</big></button></a>
-                                    </div>    
-
-                                  </form>
-                              </div>
-
-                          </div><!--end container fluid for forms -->
-
-                  </div>
-
-                   <div class="col-sm-2  col-lg-2">
+                   <div class="col-sm-4 col-md-4 col-lg-4">
 
                   </div>
 
                 </div> <!--end row 2 -->
         </div>
-
-
-        <div class="container-fluid quote-container">
-          <div>"Justice will not be served until those who are unaffected are as outraged as those who are."</div>
-          <div>-Benjamin Franklin</div>
-
-         </div> 
 
 
 

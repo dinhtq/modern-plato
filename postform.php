@@ -4,22 +4,7 @@
   include 'includes/pullstates.php';
 
 
- 
-
-
-
-
-
-
-
-
 ?>
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -160,14 +145,24 @@
                   </div>
                 </div>
 
+                 <div class="form-group form-group-sm ">
+                  <label class="col-sm-2 control-label" for="title">title</label>
+                  <div class="col-sm-6">
+                  
+                   <input type="text" class="form-control" name="title" required>
+                    
+
+                  </div>
+                </div>
+
                 
 
                  <div class="form-group form-group-sm desc">
                   <label class="col-sm-2 control-label" for="description">description</label>
                   <div class="col-sm-6">
                   
-                    <textarea id="description-text"  name="description" required>
-                    </textarea> 
+                    <textarea id="description-text"  name="description" required></textarea> 
+                    
 
                   </div>
                 </div>
