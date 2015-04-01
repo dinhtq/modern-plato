@@ -1,6 +1,6 @@
 <?php
 
-$link = mysqli_connect('localhost','root','');
+$link = mysqli_connect('localhost','mainadmin','Jason1534613');
 
 //connect to the db
 

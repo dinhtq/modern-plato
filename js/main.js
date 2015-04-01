@@ -19,6 +19,24 @@ $(document).ready(function() {
 
 
 	});//end state change listener
+
+
+	$('#location').autocomplete({
+		source: function( request, response) {
+			$.ajax({
+				url: "http://gd.geobytes.com/AutoCompleteCity",
+				dataType: "jsonp",
+				data: {
+					filter: "US",
+					q: request.term
+				},
+				success: function(data) {
+					response(data);
+				}
+			});
+		},
+		minLength: 3
+	});
 	
 
 	/*	

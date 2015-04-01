@@ -1,7 +1,3 @@
- 
-
-
-
 
  <?php
 
@@ -10,7 +6,7 @@
  $state = $_GET['state'];
 
   $query_cities = mysqli_query($link,
-                "SELECT DISTINCT city FROM zips WHERE state = '$state' ");
+                "SELECT DISTINCT city FROM zips WHERE state = '$state' ORDER BY city ASC  ");
 
   if (!$query_cities) {
     $error = "Unable to query cities";

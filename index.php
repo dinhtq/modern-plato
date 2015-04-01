@@ -2,14 +2,10 @@
 
 <?php
   include_once 'includes/db.inc.php';
-  include_once 'includes/magicquotes.inc.php';
+ 
 
 
 ?>
-
-
-
-
 
 
 <!DOCTYPE html>
@@ -27,10 +23,13 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
-        <style>
-           
-        </style>
+        
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+        <!-- jQuery UI -->
+
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
         <link rel="stylesheet" href="css/main.css">
 
         
@@ -47,10 +46,10 @@
          <div class="col-sm-1 col-md-1 col-lg-1">
          </div> 
           <div class="col-sm-2 col-md-2 col-lg-2">
-
+            <!--
             <a class ="btn btn-info btn-sm headerbtn" href="signUp.php"><span class="glyphicon glyphicon-plus"></span>Sign Up</a>
             <a class="btn btn-info btn-sm headerbtn"><span class="glyphicon glyphicon-user"></span>Log In</a>
-           
+           -->
 
          </div> 
 
@@ -62,12 +61,7 @@
   
 
 
-
-        <div  class="container-fluid " >
-            <!-- Example row of columns -->
-          
-
-          </div> <!-- /container -->   
+ 
 
 
         <div class="container-fluid logo-wrapper">
@@ -94,23 +88,23 @@
             </div> <!-- end row 1-->
         </div>
 
-     <div class="container-fluid content-container">
+     <div class="container-fluid index-content-container">
         
               <div class="row" >
 
-                  <div class="col-sm-2  col-lg-2">
+                  <div class="col-sm-2 col-md-2  col-lg-2">
                   </div>  
 
-                  <div class="col-sm-4  col-lg-4">
+                  <div class="col-sm-4 col-md-4 col-lg-4" style="border-right: 1px dashed yellow;">
 
                         <div class="container-fluid post-btn-container">
-                            
-       
-                          
-                              <a type="button" href="postform.php" name="post_case"> <button class="post-btn" onclick="highlight_text()"><big>Post Your Legal</big></button></a>
-                     
 
-                         
+                          
+                              <a type="button" href="postform.php" name="post_case"> <button class="post-btn" onclick="highlight_text()">
+                                <big>Post Your Legal Troubles</big></button></a>
+                     
+                              <div class="index-subtext">If you are a victim of the law</div>
+                              
 
 
                         </div><!--end container fluid for forms -->
@@ -119,29 +113,32 @@
 
                   
 
-                  <div class="col-sm-4  col-lg-4">
+                  <div class="col-sm-4 col-md-4  col-lg-4">
 
                           <div class="container-fluid find-side-wrapper">
                               <div class="find-side-container">
-                                  <form role="form">
+                                  <form role="form" action="feedSearched.php" method="post">
 
                                     <div class="form-group">
                                       <label for="city_state" class="label-custom ">where</label>
-                                      <input type="text" id="where_text" name="where_this" class="form-control input-lg text-right"  placeholder="city, state or zip code">
+                                      <input type="text" id="location" name="location" class="form-control input-lg text-right"  placeholder="city, state">
                                     </div>  
 
                                      <div class="form-group">
-                                      <a type="submit" href="feed.php"  name="find_case"><button class="btn-find"><big>Find a case</big></button></a>
+                                      
+                                      <input type="submit"   id="findbtn" class="btn-find" value="Find a Case">
                                     </div>    
-
+                                       <div class="index-subtext">If you are a lawyer</div>
                                   </form>
                               </div>
 
+
                           </div><!--end container fluid for forms -->
+
 
                   </div>
 
-                   <div class="col-sm-2  col-lg-2">
+                   <div class="col-sm-2 col-md-2  col-lg-2">
 
                   </div>
 
@@ -162,6 +159,7 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
     <script src="js/vendor/bootstrap.min.js"></script>
 

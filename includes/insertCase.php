@@ -2,13 +2,13 @@
 
 include 'db.inc.php';
 
-if (isset($_GET['description'])) {
+if (isset($_POST['description'])) {
 
-            $email = $_GET['email'];
-            $state = $_GET['state'];
-            $city = $_GET['city'];
-            $title = $_GET['title'];
-            $description = $_GET['description'];
+            $email = $_POST['email'];
+            $state = $_POST['state'];
+            $city = $_POST['city'];
+            $title = $_POST['title'];
+            $description = $_POST['description'];
 
 
             $username = "anonymous";
@@ -72,6 +72,11 @@ if (isset($_GET['description'])) {
                 exit();
               }
 
+
+              header("location: ../feed.php") or die ("header didnt work");
+
+
+
               
   }
 
@@ -79,6 +84,7 @@ if (isset($_GET['description'])) {
 
 
 
+        
 
 
 

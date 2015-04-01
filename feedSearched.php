@@ -1,19 +1,19 @@
 <?php
   include_once 'includes/db.inc.php';
-
+ 
 
   if(isset($_POST['location'])) {
 
     include_once 'includes/pullLocationCases.php';
 
-  } 
-  else {
-
-    include 'includes/pullCases.php';
-
   }
 
- 
+
+  if  (mysqli_num_rows($querySearched) == 0) {
+    header("location: sorry.php");
+  }
+   
+
 ?>
 
 
@@ -53,7 +53,7 @@
    <nav class="navbar  navbar-inverse nav-feed navbar-fixed-top " role="navigation">
       <div class="container">
           
-           <div class="col-sm-1 col-md-1 col-lg-1">  
+          <div class="col-sm-1 col-md-1 col-lg-1">  
 
           </div>
 
@@ -63,7 +63,7 @@
                 <div class="feed-post-wrapper">
 
                     <a type="button" href="index.php"><button class="feed-post-btn">
-                      <span class="glyphicon glyphicon-search post-pencil" ></span>
+                      <span class="glyphicon glyphicon-pencil post-pencil" ></span>
                       Find a case
                       
                     </button>
@@ -80,7 +80,6 @@
              <div class="col-sm-1 col-md-1 col-lg-1">  
 
           </div>
-         
            <div class="col-sm-4 col-md-4 col-lg-4">
 
                 <div class="logo-container">
@@ -138,7 +137,7 @@
 
                   <div class="col-sm-10 col-md-10  col-lg-10">
 
-                     <?php while ($row_cases = mysqli_fetch_array($query_pullAll)) : ?>
+                     <?php while ($row_cases = mysqli_fetch_array($querySearched)) : ?>
                   
                        <div id="content-wrapper">
 
@@ -170,22 +169,8 @@
 
                                     <?php 
 
-                                        $zip = $row_cases['zipid'];
-
-                                        $querylocation = mysqli_query($link,
-                                                        "SELECT DISTINCT city,state FROM zips WHERE zip = '$zip' ");
-
-                                              if(!$querylocation)
-                                              {
-                                                $error = "Unable to query city and state";
-                                                include 'includes/error.html.php';
-                                                exit();
-                                              }
-
-                                       while($location = mysqli_fetch_array($querylocation)) 
-                                                {
-                                                  echo $location['city'] . ", " . $location['state'];
-                                                }
+                                                  echo $row_cases['city'] . ", " . $row_cases['state'];
+                                                
 
 
                                        ?>

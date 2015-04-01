@@ -21,8 +21,12 @@ body {
 
 }
 
+html, body {
+	font-family: "Courier New", monospace;
+}
+
 .logo-wrapper {
-	margin-top: 10%;
+	margin-top: 2%;
 	/*border: 3px solid blue;*/
 }
 
@@ -36,13 +40,26 @@ body {
 #logo{
 	font-family: "Courier New", monospace;
 	font-weight: 900;
-	font-size: 300%;
+	font-size: 400%;
 	text-align: center;
 	color:white;
 	margin-left: 0%;
 	margin-right: 0%;
-	margin-top: 2%;
+	margin-top: 0%;
+	text-shadow: 3px 3px #1abc9c;
 	/*border: 5px solid red;*/
+}
+
+	#logo:hover {
+		color: white;
+		cursor: default;
+	}
+
+.index-subtext{
+	text-align: center;
+	color: #F3F313;
+	margin-top: 5px;
+	font-size: 120%;
 }
 
 #logo-feed {
@@ -51,9 +68,20 @@ body {
 	font-size: 300%;
 	text-align: center;
 	color:white;
+	text-shadow: 3px 3px #1abc9c;
 	margin-left: 0%;
 	margin-right: 0%;
 	margin-top: -1%;
+	text-decoration: none;
+}
+
+	#logo-feed:hover {
+		color: white;
+		text-decoration: none;
+	}
+
+.index-content-container {
+	margin-top: 5%;
 }
 
 
@@ -79,6 +107,32 @@ body {
 	border-top: none;
 
 }
+
+.feed-post-wrapper{
+	margin-top: 8%;
+}
+	
+	.feed-post-btn {
+		width: 100%;
+		height: 100%;
+		border: none;
+		background-color: #1abc9c;
+		box-shadow: 6px 10px 10px #1A3129;
+		color: white;
+		font-family: "Courier New", monospace;
+		font-size: 120%;
+		}
+
+		.feed-post-btn:hover {
+			background-color: #39DCBC;
+		}
+
+
+
+		.post-pencil {
+			position: relative;
+			top: 5px;
+		}
 
 .feed-wrapper {
 	padding-top: 10px;
@@ -152,12 +206,13 @@ body {
 
 .btn-find {
 	width: 100%;
-	height: 4em;
+	height: 2.6em;
+	padding: 0;
 	color: white;
 	background-color: #1abc9c;
 	border: none;
 	font-family: "Courier New", monospace;
-	font-size: 100%;
+	font-size: 150%;
 	font-weight: 1000;
 	box-shadow: 6px 10px 10px #1A3129;
 }
@@ -181,16 +236,51 @@ body {
 	/*border: 1px solid yellow;*/
 }
 
+/************************************
+  Postform.php styles 
+
+  ************************************/
+
+ #postform-wrapper {
+  	border: 1px solid #1abc9c;
+  	margin-top: 10%;
+  	background-color: white;
+  	width: 100%;
+  }
+
 
 .custom-header {
-	margin-top: 0;
-	margin-left: 25%;
+	margin-top: 0%;
+	margin-left: 0%;
 	margin-bottom: 5%;
+	background-color: #1abc9c;
 	color: white;
+	font-weight: bolder;
+	/*border: 1px solid blue;*/
+	width: 100%;
+	text-align: center;
+	padding: 5px;
+}
+
+
+
+#postCase {
+	
+	font-weight: bolder;
+}
+
+.custom-label {
+	color: black;
+	font-size: 130%;
+}
+
+#title {
+	width: 450px;
+	height: 100%;
 }
 
 #description-text {
-	width: 500px;
+	width: 450px;
 	height: 250px;
 	border: 3px solid #cccccc;
 	padding: 5px;
@@ -198,8 +288,30 @@ body {
 
 }
 
+.postform-btn {
+	width: 100%;
+	height: 100%;
+	border: none;
+	background-color: #1abc9c;
+	box-shadow: 4px 6px 10px #1A3129;
+	color: white;
+	font-family: "Courier New", monospace;
+	font-size: 250%;
+}
 
+	.postform-btn:hover{
+		box-shadow: 0px 0px 0px #1A3129;
+		background-color: #39DCBC;
+		position: relative;
+		top: 5px;
+		left: 5px;
 
+	}
+
+/************************************
+  End Postform.php styles 
+
+  ************************************/
 
 
 .quote-container {
@@ -226,7 +338,7 @@ body {
 }
 
 		.content-header {
-			font-size: 155%;
+			font-size: 150%;
 			/*border: 2px solid blue;*/
 			margin: 0;
 			padding-left: 2%;
@@ -270,4 +382,36 @@ body {
 			padding-right: 2%;
 		}
 
+		.footer-email {
+		
+			font-family: "Courier New", monospace;
+		}
 
+
+#sorry-wrapper {
+  	border: 1px dashed #1abc9c;
+  	margin-top: 10%;
+  	background-color: white;
+  	width: 100%;
+
+  }
+
+.sorry-header {
+	margin-top: 0%;
+	margin-left: 0%;
+	margin-bottom: 5%;
+	background-color: #1abc9c;
+	color: white;
+	font-size: 150%;
+	font-weight: bolder;
+	/*border: 1px solid blue;*/
+	width: 100%;
+	text-align: center;
+	padding: 5px;
+}
+
+.sorry-btn-wrapper {
+	margin-left: 20%;
+	margin-bottom: 5%;
+	width: 60%;
+}

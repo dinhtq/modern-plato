@@ -1,6 +1,6 @@
 <?php
   include 'includes/db.inc.php';
-
+  include 'includes/magicquotes.inc.php';
   include 'includes/pullstates.php';
 
 
@@ -93,105 +93,108 @@
 
       <div class="row" >
 
+        
 
-        <div class="col-sm-2 col-md-2 col-lg-2 ">
+        <div class="col-sm-7 col-md-7 col-lg-7">
 
-        </div>        
+          <div class="container-fluid row-2-custom">
 
-        <div class="col-sm-7 col-md-7 col-lg-7 ">
+            <h1 class="custom-header">Post a Case</h1>
 
-          <div id="postform-wrapper">
+             <form class="form-horizontal" role="form" id="postCase" method="post" action="includes/insertCase.php">
 
-               
-                  <h1 class="custom-header">
-                    <span class="glyphicon glyphicon-pencil" style="margin-right:1px;"></span>
-                    Post a Case</h1>
-
-                 <form class="form-horizontal" role="form" id="postCase" method="post" action="includes/insertCase.php">
-
-                  <div class="form-group form-group-sm ">
-                      <label class="col-sm-3 control-label custom-label" for="title">title</label>
-                      <div class="col-sm-6">
-                      
-                       <input type="text" id="title" class="form-control text-right" name="title" placeholder="Help with DUI, Got fired from work,..." required>
-                        
-
-                      </div>
-                    </div>
-
+              <div class="form-group form-group-sm ">
+                  <label class="col-sm-3 control-label custom-label" for="title">title</label>
+                  <div class="col-sm-6">
+                  
+                   <input type="text" id="title" class="form-control text-right" name="title" placeholder="Help with DUI, Got fired from work,..." required>
                     
 
-                     <div class="form-group form-group-sm desc">
-                      <label class="col-sm-3 control-label custom-label" for="description">description</label>
-                      <div class="col-sm-6">
-                      
-                        <textarea id="description-text"  name="description" required></textarea> 
-                        
+                  </div>
+                </div>
 
-                      </div>
-                    </div>
+                
 
-                    <div class="form-group form-group-sm">
-                      <label class="col-sm-3 control-label custom-label" for="email">email</label>
-                      <div class="col-sm-6">
-                        <input class="form-control text-right " type="text" name="email"  required>
-                        
-                      </div>
-
-                    </div>
-
-                    <div class="form-group form-group-sm">
-                      <label class="col-sm-3 control-label custom-label" for="state">state</label>
-                      <div class="col-sm-6">
-
+                 <div class="form-group form-group-sm desc">
+                  <label class="col-sm-3 control-label custom-label" for="description">description</label>
+                  <div class="col-sm-6">
+                  
+                    <textarea id="description-text"  name="description" required></textarea> 
                     
-                        <select id="state" name="state" class="form-control"  required>
-                           <option value="" disabled selected>Select the state</option>
-                          <?php foreach ($states as $state) : ?>
 
-                              <option value=<?php echo $state['state']  ?>> <?php echo $state['state']  ?></option>
+                  </div>
+                </div>
 
 
-                        <?php endforeach; ?>  
-                        </select>
-                        
-                      </div>
-                    </div>
 
-                     <div class="form-group form-group-sm">
-                      <label class="col-sm-3 control-label custom-label" for="city">city</label>
-                      <div class="col-sm-6">
 
-                         <select id="city" name="city" class="form-control"  required>
-                           <option value="" disabled selected>Select the city</option>
-                         
-                        </select>
-                        
-                      </div>
-                    </div>
+                <div class="form-group form-group-sm">
+                  <label class="col-sm-3 control-label custom-label" for="email">email</label>
+                  <div class="col-sm-6">
+                    <input class="form-control text-right " type="text" name="email"  required>
+                    
+                  </div>
 
+                </div>
+
+                <div class="form-group form-group-sm">
+                  <label class="col-sm-3 control-label custom-label" for="state">state</label>
+                  <div class="col-sm-6">
+
+                
+                    <select id="state" name="state" class="form-control"  required>
+                       <option value="" disabled selected>Select the state</option>
+                      <?php foreach ($states as $state) : ?>
+
+                          <option value=<?php echo $state['state']  ?>> <?php echo $state['state']  ?></option>
+
+
+                    <?php endforeach; ?>  
+                    </select>
+                    
+                  </div>
+                </div>
+
+                 <div class="form-group form-group-sm">
+                  <label class="col-sm-3 control-label custom-label" for="city">city</label>
+                  <div class="col-sm-6">
+
+
+
+                     <select id="city" name="city" class="form-control"  required>
+                       <option value="" disabled selected>Select the city</option>
                      
-                    <div class="form-group">
-                        <div class="col-sm-offset-5 col-sm-6">
-                            <input type="submit"   id="postbtn" class="postform-btn" value="POST">
-                        </div>
+                    </select>
+
+
+
+                
+                    
+                  </div>
+                </div>
+
+                 
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-6">
+                        <input type="submit"   id="postbtn" class="btn btn-info btn-block" value="POST">
                     </div>
-                 </form>
+                </div>
+             </form>
 
             
 
            
 
          
-          </div><!--end postform-wrapper -->
+          </div><!--end container fluid for forms -->
 
         </div>
 
-         <div class="col-sm-3 col-md-3 col-lg-3">
+         <div class="col-sm-5 col-md-5 col-lg-5">
 
         </div>
 
-      </div> <!--end row  -->
+      </div> <!--end row 2 -->
 
 
 
@@ -199,6 +202,11 @@
       <br><br>
 
 
+ 
+
+      <footer>
+       
+      </footer>
     </div> <!-- /container -->   
 
 
